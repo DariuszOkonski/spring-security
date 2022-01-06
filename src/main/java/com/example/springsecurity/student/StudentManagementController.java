@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("management/api/v1/students")
 public class StudentManagementController {
@@ -17,16 +18,19 @@ public class StudentManagementController {
 
     @GetMapping
     public List<Student> getAllStudents() {
+        System.out.println("GET getAllStudents");
         return STUDENTS;
     }
 
     @PostMapping
     public void registerNewStudent(@RequestBody Student student) {
+        System.out.println("POST registerNewStudent");
         System.out.println(student);
     }
 
     @DeleteMapping(path = "{studentId}")
     public void deleteStudent(@PathVariable("studentId") Integer studentId) {
+        System.out.println("DELETE deleteStudent");
         System.out.println(studentId);
     }
 
@@ -34,6 +38,7 @@ public class StudentManagementController {
     public void updateStudent(@PathVariable("studentId") Integer studentId,
                               @RequestBody Student student) {
 
+        System.out.println("PUT updateStudent");
         String currentStudent = studentId + " " + student;
 
         System.out.println(currentStudent);
